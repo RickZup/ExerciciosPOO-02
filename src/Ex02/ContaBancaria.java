@@ -1,6 +1,4 @@
-package Ex01;
-
-import java.sql.SQLOutput;
+package Ex02;
 
 public abstract class ContaBancaria {
 

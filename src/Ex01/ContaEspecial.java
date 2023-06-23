@@ -1,20 +1,25 @@
 package Ex01;
 
-public class ClasseEspecial extends ContaBancaria {
+public class ContaEspecial extends ContaBancaria {
 
     private double limite;
 
-    public ClasseEspecial(String nomeCliente, int numConta, double saldo, double limite) {
+    public ContaEspecial(String nomeCliente, int numConta, double saldo, double limite) {
         super(nomeCliente, numConta, saldo);
         this.limite = limite;
     }
 
     @Override
     public double sacar(double valorSaque) {
-        if (getSaldo() - valorSaque < 0) {
-            System.out.println("Você não possui saldo suficiente!");
+        if (valorSaque <= limite){
+            if (getSaldo() - valorSaque < 0) {
+                System.out.println("Você não possui saldo suficiente!");
+            } else {
+                setSaldo(getSaldo() - valorSaque);
+            }
         } else {
-            setSaldo(getSaldo() - valorSaque);
+            System.out.println("Não é possível sacar um valor acima do limite.");
+            System.out.println();
         }
         return getSaldo();
     }
